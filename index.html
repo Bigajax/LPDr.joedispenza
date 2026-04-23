@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Método Dr. Joe Dispenza - Meditações em Português</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #FDFCFF;
+      --bg-alt:   #F2EDFF;
+      --bg-dark:  #120730;
+      --bg-dark2: #180940;
+      --accent:   #6D28D9;
+      --accent-h: #5B21B6;
+      --accent-l: #EDE9FE;
+      --purple:   #A78BFA;
+      --gold:     #D97706;
+      --gold-l:   #FEF3C7;
+      --text:     #0F0A1E;
+      --muted:    #6B7280;
+      --border:   #E5E7EB;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: 480px; margin: 0 auto; padding: 0 22px; }
+
+    /* ── TYPOGRAPHY ── */
+    .lbl {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: .15em; text-transform: uppercase;
+    }
+    .protocol {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: .12em;
+      color: rgba(109,40,217,.35);
+    }
+    .sec-h {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900; text-transform: uppercase;
+      line-height: .93; letter-spacing: -.02em;
+    }
+    .sec-h-xl { font-size: clamp(44px,12vw,64px); }
+    .sec-h-lg { font-size: clamp(36px,10vw,52px); }
+    .sec-h-md { font-size: clamp(28px,8vw,40px); }
+    .sec-body  { font-size: 15px; line-height: 1.6; color: var(--muted); }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; padding: 17px 24px;
+      border-radius: 100px; border: none; cursor: pointer;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 18px; font-weight: 800;
+      letter-spacing: .06em; text-transform: uppercase;
+      text-decoration: none;
+      transition: transform .15s, box-shadow .15s;
+    }
+    .btn:active { transform: scale(.98); }
+    .btn-primary {
+      background: var(--accent); color: #fff;
+      box-shadow: 0 8px 32px rgba(109,40,217,.35);
+    }
+    .btn-primary:hover { background: var(--accent-h); box-shadow: 0 12px 40px rgba(109,40,217,.45); }
+    .btn-white  { background: #fff; color: var(--accent); box-shadow: 0 8px 40px rgba(0,0,0,.15); }
+    .btn-dark   { background: var(--text); color: #fff; }
+    .btn-ghost  { background: transparent; color: rgba(255,255,255,.55); border: 1.5px solid rgba(255,255,255,.15); }
+
+    /* ── PILL ── */
+    .pill {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 5px 12px; border-radius: 100px;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+    }
+    .pill-glass   { background: rgba(167,139,250,.15); color: #C4B5FD; border: 1px solid rgba(167,139,250,.25); }
+    .pill-outline { background: transparent; color: rgba(255,255,255,.5); border: 1.5px solid rgba(255,255,255,.18); }
+    .pill-accent  { background: var(--accent); color: #fff; }
+
+    /* ── BRACKET CARD ── */
+    .bcard {
+      position: relative; background: #fff;
+      border-radius: 6px; padding: 24px 22px;
+      box-shadow: 0 2px 16px rgba(109,40,217,.06);
+    }
+    .bcard::before,.bcard::after,
+    .bcard > .bc-br::before,.bcard > .bc-br::after {
+      content: ''; position: absolute;
+      width: 14px; height: 14px;
+      border-color: var(--accent); border-style: solid;
+    }
+    .bcard::before       { top:-2px;    left:-2px;  border-width: 2px 0 0 2px; }
+    .bcard::after        { top:-2px;    right:-2px; border-width: 2px 2px 0 0; }
+    .bcard > .bc-br::before { bottom:-2px; left:-2px;  border-width: 0 0 2px 2px; }
+    .bcard > .bc-br::after  { bottom:-2px; right:-2px; border-width: 0 2px 2px 0; }
+
+    section { padding: 60px 0; }
+
+    /* ════════════════════════════
+       HERO
+    ════════════════════════════ */
+    #hero { padding: 0; }
+
+    .hero-dark {
+      background: linear-gradient(175deg, #08031C 0%, #160840 55%, #2A1060 80%, #F2EDFF 100%);
+      padding: 0 0 120px;
+      position: relative; overflow: hidden;
+    }
+    .hero-dark::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 96px; background: var(--bg);
+      clip-path: ellipse(65% 100% at 50% 100%);
+    }
+
+    .orb {
+      position: absolute; border-radius: 50%;
+      opacity: .12; filter: blur(80px); pointer-events: none;
+    }
+    .orb-1 { width:320px; height:320px; background:#A78BFA; top:-100px; right:-80px; }
+    .orb-2 { width:180px; height:180px; background:#DDD6FE; bottom:60px; left:-50px; }
+    .orb-3 { width:200px; height:200px; background:#6D28D9; top:220px; left:50%; transform:translateX(-50%); opacity:.07; }
+
+    .hero-nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 22px 44px;
+      position: relative; z-index: 1;
+    }
+    .hero-logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900; font-size: 15px;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: rgba(255,255,255,.7);
+      line-height: 1.2;
+    }
+    .hero-logo strong { color: #fff; display: block; font-size: 19px; }
+
+    .hero-content { padding: 0 22px; position: relative; z-index: 1; }
+    .hero-eyebrow { display: flex; align-items: center; gap: 8px; margin-bottom: 22px; flex-wrap: wrap; }
+
+    .hero-h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(52px,14.5vw,76px);
+      line-height: .91; color: #fff;
+      text-transform: uppercase; letter-spacing: -.02em;
+      margin-bottom: 20px;
+    }
+    .hero-h1 .hl { color: var(--purple); }
+
+    .hero-sub { font-size: 15px; color: rgba(255,255,255,.6); line-height: 1.55; margin-bottom: 32px; }
+
+    .progress-wrap { margin-top: 14px; }
+    .progress-track { height: 4px; background: rgba(255,255,255,.1); border-radius: 100px; overflow: hidden; margin-bottom: 8px; }
+    .progress-fill  { height: 100%; width: 68%; background: linear-gradient(90deg,#7C3AED,#A78BFA); border-radius: 100px; }
+    .progress-lbl   { font-size: 12px; color: rgba(255,255,255,.5); font-weight: 600; }
+    .progress-lbl strong { color: #fff; }
+
+    /* Mockup */
+    .mockup-wrap  { margin: 44px 22px 0; position: relative; z-index: 1; }
+    .mockup-shell {
+      background: linear-gradient(135deg,#180B3B,#2D1060);
+      border-radius: 28px; padding: 18px;
+      border: 1px solid rgba(167,139,250,.18);
+      box-shadow: 0 40px 80px rgba(0,0,0,.4);
+    }
+    .mockup-screen { background: linear-gradient(180deg,#0C0520,#180840); border-radius: 18px; padding: 20px 18px; }
+    .mockup-eyebrow { font-size: 9px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: rgba(167,139,250,.4); text-align: center; margin-bottom: 3px; }
+    .mockup-heading {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 18px; font-weight: 900; text-transform: uppercase;
+      color: #fff; text-align: center; margin-bottom: 18px;
+      letter-spacing: .03em;
+    }
+    .mockup-row {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 12px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(167,139,250,.07);
+      border-radius: 12px; margin-bottom: 8px;
+    }
+    .mockup-thumb {
+      width: 40px; height: 40px; border-radius: 10px;
+      background-size: cover; background-position: center;
+      flex-shrink: 0;
+    }
+    .mockup-row-title { font-size: 12px; font-weight: 600; color: rgba(255,255,255,.85); line-height: 1.3; }
+    .mockup-row-sub   { font-size: 10px; color: rgba(255,255,255,.3); margin-top: 2px; }
+    .mockup-play {
+      margin-left: auto; flex-shrink: 0;
+      width: 26px; height: 26px; border-radius: 50%;
+      background: rgba(167,139,250,.18);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .mockup-play-icon {
+      width: 0; height: 0;
+      border-style: solid;
+      border-width: 5px 0 5px 9px;
+      border-color: transparent transparent transparent var(--purple);
+      margin-left: 2px;
+    }
+
+    /* ════════════════════════════
+       TRUST
+    ════════════════════════════ */
+    #trust {
+      padding: 26px 0;
+      background: var(--bg-alt);
+      border-top: 1px solid rgba(109,40,217,.08);
+      border-bottom: 1px solid rgba(109,40,217,.08);
+    }
+    .trust-row  { display: flex; align-items: center; justify-content: space-around; gap: 4px; }
+    .trust-item { display: flex; flex-direction: column; align-items: center; gap: 7px; flex: 1; min-width: 70px; }
+    .trust-icon { width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; }
+    .trust-txt  { font-size: 10px; font-weight: 600; color: var(--muted); text-align: center; text-transform: uppercase; letter-spacing: .04em; line-height: 1.3; }
+
+    /* ════════════════════════════
+       PROBLEM
+    ════════════════════════════ */
+    #problem { background: var(--bg); }
+
+    .sec-eyebrow { display: flex; align-items: center; gap: 7px; margin-bottom: 10px; }
+    .sec-dot     { width:6px; height:6px; border-radius:50%; background:var(--accent); flex-shrink:0; }
+
+    .feature-stack { display: flex; flex-direction: column; gap: 14px; margin-top: 32px; }
+    .fcard-num   { font-family: 'Barlow Condensed', sans-serif; font-size: 36px; font-weight: 900; color: rgba(109,40,217,.15); line-height: 1; margin-bottom: 8px; }
+    .fcard-title { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .fcard-body  { font-size: 14px; color: var(--muted); line-height: 1.55; }
+
+    .agit-frame  { background: var(--bg-dark); border-radius: 20px; overflow: hidden; margin-top: 32px; }
+    .agit-visual {
+      width: 100%; height: 190px;
+      position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .agit-visual-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 60% 40%, rgba(109,40,217,.4) 0%, rgba(20,7,48,.9) 65%);
+    }
+    .agit-ring {
+      position: absolute;
+      border: 1px solid rgba(167,139,250,.15);
+      border-radius: 50%;
+    }
+    .agit-ring-1 { width: 120px; height: 120px; }
+    .agit-ring-2 { width: 200px; height: 200px; border-style: dashed; border-color: rgba(167,139,250,.07); }
+    .agit-ring-3 { width: 290px; height: 290px; border-color: rgba(167,139,250,.04); }
+    .agit-dot    { width: 10px; height: 10px; border-radius: 50%; background: var(--purple); opacity: .6; position: relative; z-index: 1; }
+    .agit-body   { padding: 22px; }
+    .agit-title  { font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 900; text-transform: uppercase; color: #fff; margin-bottom: 10px; line-height: .95; }
+    .agit-txt    { font-size: 14px; color: rgba(255,255,255,.48); line-height: 1.6; }
+
+    /* ════════════════════════════
+       BRIDGE
+    ════════════════════════════ */
+    #bridge { background: var(--accent); position: relative; overflow: hidden; }
+    #bridge::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at top right, rgba(255,255,255,.1) 0%, transparent 55%);
+    }
+    #bridge .container { position: relative; }
+
+    /* ════════════════════════════
+       MODULES
+    ════════════════════════════ */
+    #modules { background: var(--bg-dark); }
+
+    .mod-cards { display: flex; flex-direction: column; gap: 14px; margin-top: 28px; }
+
+    .mod-card {
+      border-radius: 16px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,.07);
+      transition: border-color .25s;
+    }
+    .mod-card:hover { border-color: rgba(167,139,250,.3); }
+
+    .mod-card-img {
+      width: 100%; height: 160px;
+      object-fit: cover; display: block;
+    }
+    .mod-card-img-fallback {
+      width: 100%; height: 160px;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .mod-card-img-fallback-ring {
+      width: 60px; height: 60px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.15);
+      position: absolute;
+    }
+    .mod-card-img-fallback-ring-2 {
+      width: 100px; height: 100px;
+      border-style: dashed; border-color: rgba(255,255,255,.06);
+    }
+    .mod-card-body { padding: 18px 18px 20px; background: rgba(255,255,255,.04); }
+    .mod-card-num  { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .15em; color: rgba(167,139,250,.5); text-transform: uppercase; margin-bottom: 5px; }
+    .mod-card-name { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 900; text-transform: uppercase; color: #fff; line-height: .95; margin-bottom: 8px; letter-spacing: .02em; }
+    .mod-card-desc { font-size: 13px; color: rgba(255,255,255,.45); line-height: 1.55; margin-bottom: 14px; }
+    .mod-card-meta { display: flex; align-items: center; gap: 8px; }
+    .mod-dur-tag   {
+      font-size: 11px; font-weight: 600; color: rgba(167,139,250,.7);
+      padding: 4px 10px; border-radius: 100px;
+      border: 1px solid rgba(167,139,250,.2);
+    }
+    .mod-free-tag  {
+      font-size: 11px; font-weight: 700; color: #10B981;
+      padding: 4px 10px; border-radius: 100px;
+      border: 1px solid rgba(16,185,129,.25);
+      background: rgba(16,185,129,.07);
+    }
+
+    /* ════════════════════════════
+       TESTIMONIALS
+    ════════════════════════════ */
+    #testimonials { background: var(--bg); }
+
+    .fb-label {
+      display: inline-block;
+      background: var(--accent); color: #fff;
+      padding: 4px 12px; border-radius: 4px;
+      font-size: 11px; font-weight: 800;
+      letter-spacing: .1em; text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .tcard-stack { display: flex; flex-direction: column; gap: 14px; margin-top: 24px; }
+    .tcard {
+      padding: 20px; background: var(--bg-alt);
+      border-radius: 14px; border-left: 3px solid var(--accent);
+    }
+    .tcard-text   { font-size: 14px; line-height: 1.65; color: var(--text); font-style: italic; margin-bottom: 14px; }
+    .tcard-author { display: flex; align-items: center; gap: 10px; }
+    .tcard-av     {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: linear-gradient(135deg, #7C3AED, #A78BFA);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-weight: 700; font-size: 14px; flex-shrink: 0;
+    }
+    .tcard-name   { font-size: 13px; font-weight: 700; color: var(--text); }
+    .tcard-detail { font-size: 11px; color: var(--muted); }
+
+    /* ════════════════════════════
+       PRICING
+    ════════════════════════════ */
+    #pricing { background: var(--bg-dark); }
+
+    .ticket { background: #fff; border-radius: 22px; position: relative; margin-bottom: 14px; }
+    .ticket-top {
+      background: var(--bg-dark2);
+      border-radius: 22px 22px 0 0;
+      padding: 26px 22px 22px; text-align: center;
+    }
+    .ticket-perforation { position: relative; height: 26px; display: flex; align-items: center; }
+    .ticket-perforation::before {
+      content: ''; position: absolute; left: -22px;
+      width: 26px; height: 26px; border-radius: 50%; background: var(--bg-dark);
+    }
+    .ticket-perforation::after {
+      content: ''; position: absolute; right: -22px;
+      width: 26px; height: 26px; border-radius: 50%; background: var(--bg-dark);
+    }
+    .ticket-dash { flex: 1; border-top: 2px dashed rgba(0,0,0,.1); margin: 0 14px; }
+    .ticket-bottom { padding: 22px; }
+
+    .t-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: var(--gold-l); color: #92400E;
+      padding: 5px 12px; border-radius: 100px;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: .06em; text-transform: uppercase; margin-bottom: 10px;
+    }
+    .t-was   { font-size: 12px; color: rgba(255,255,255,.22); text-decoration: line-through; margin-bottom: 4px; }
+    .t-price { font-family: 'Barlow Condensed', sans-serif; font-size: 74px; font-weight: 900; color: #fff; line-height: 1; }
+    .t-price sup { font-size: 28px; vertical-align: super; }
+    .t-period    { font-size: 13px; color: rgba(255,255,255,.38); margin-top: 4px; }
+    .t-nomensalidade {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: rgba(167,139,250,.1); border: 1px solid rgba(167,139,250,.2);
+      border-radius: 100px; padding: 5px 14px; margin-top: 10px;
+    }
+    .t-features  { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 20px 0; }
+    .t-features li { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text); }
+    .tick-dot {
+      width: 18px; height: 18px; border-radius: 50%;
+      background: var(--accent); flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .tick-svg { width: 10px; height: 10px; }
+
+    /* ════════════════════════════
+       GUARANTEE
+    ════════════════════════════ */
+    #guarantee { background: var(--bg-dark); text-align: center; }
+
+    .guar-ring {
+      width: 164px; height: 164px; border-radius: 50%;
+      border: 1px dashed rgba(167,139,250,.3);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 28px; position: relative;
+    }
+    .guar-ring::before {
+      content: ''; position: absolute; inset: 12px; border-radius: 50%;
+      border: 1px solid rgba(167,139,250,.15);
+    }
+    .guar-inner {
+      width: 92px; height: 92px; border-radius: 50%;
+      background: rgba(109,40,217,.18);
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .trust-badges { display: flex; align-items: center; justify-content: center; gap: 28px; margin-top: 36px; }
+    .tbadge       { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+    .tbadge-txt   { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: rgba(255,255,255,.22); text-align: center; line-height: 1.4; }
+
+    /* ════════════════════════════
+       FINAL CTA
+    ════════════════════════════ */
+    #final-cta {
+      background: var(--accent); padding: 64px 0;
+      position: relative; overflow: hidden; text-align: center;
+    }
+    #final-cta::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at top center, rgba(255,255,255,.12) 0%, transparent 60%);
+    }
+    #final-cta .container { position: relative; }
+    .final-h {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(42px,12vw,64px); font-weight: 900;
+      text-transform: uppercase; line-height: .93; color: #fff; margin-bottom: 28px;
+    }
+    .final-h .dim { color: rgba(255,255,255,.4); }
+
+    /* ════════════════════════════
+       FOOTER
+    ════════════════════════════ */
+    footer {
+      background: var(--bg-dark); padding: 24px 22px;
+      text-align: center; border-top: 1px solid rgba(255,255,255,.05);
+    }
+    footer p { font-size: 12px; color: rgba(255,255,255,.22); margin-bottom: 4px; }
+
+    /* ════════════════════════════
+       STICKY CTA
+    ════════════════════════════ */
+    .sticky-bar {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: rgba(12,4,30,.95); backdrop-filter: blur(18px);
+      padding: 14px 22px; z-index: 200;
+      border-top: 1px solid rgba(167,139,250,.18);
+      transform: translateY(100%); transition: transform .3s ease;
+    }
+    .sticky-bar.show { transform: translateY(0); }
+
+    /* ════════════════════════════
+       TOPNAV
+    ════════════════════════════ */
+    .topnav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 300;
+      background: rgba(8,3,28,0);
+      backdrop-filter: blur(0px);
+      border-bottom: 1px solid transparent;
+      transition: background .35s ease, backdrop-filter .35s ease, border-color .35s ease;
+    }
+    .topnav.scrolled {
+      background: rgba(8,3,28,.88);
+      backdrop-filter: blur(20px);
+      border-bottom-color: rgba(167,139,250,.12);
+    }
+    .topnav-inner {
+      max-width: 960px; margin: 0 auto;
+      padding: 0 22px;
+      height: 58px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    }
+    /* Logo */
+    .nav-logo {
+      display: flex; align-items: center; gap: 9px;
+      text-decoration: none; flex-shrink: 0;
+    }
+    .nav-logo-icon { width: 32px; height: 32px; flex-shrink: 0; }
+    .nav-logo-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 18px; font-weight: 900;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: #fff;
+    }
+    /* Links */
+    .nav-links {
+      display: flex; align-items: center; gap: 4px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px; font-weight: 600;
+      color: rgba(255,255,255,.55);
+      text-decoration: none;
+      padding: 6px 12px; border-radius: 8px;
+      transition: color .2s, background .2s;
+      white-space: nowrap;
+    }
+    .nav-links a:hover { color: #fff; background: rgba(255,255,255,.07); }
+    /* Nav CTA */
+    .nav-cta {
+      flex-shrink: 0;
+      display: inline-flex; align-items: center;
+      padding: 9px 18px; border-radius: 100px;
+      background: var(--accent); color: #fff;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px; font-weight: 800;
+      letter-spacing: .06em; text-transform: uppercase;
+      text-decoration: none;
+      transition: background .2s, box-shadow .2s;
+      box-shadow: 0 4px 18px rgba(109,40,217,.35);
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--accent-h); }
+
+    /* Mobile: hide links, keep logo + cta */
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .nav-logo-text { font-size: 15px; }
+      .nav-cta { font-size: 12px; padding: 8px 14px; }
+    }
+
+    /* Push body down so fixed nav doesn't overlap */
+    body { padding-top: 58px; }
+
+    /* ════════════════════════════
+       ANIMATIONS
+    ════════════════════════════ */
+    @media (prefers-reduced-motion: no-preference) {
+      .fade-up { opacity: 0; transform: translateY(22px); transition: opacity .45s ease, transform .45s ease; }
+      .fade-up.in { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════ TOPNAV ══════ -->
+<nav class="topnav" id="topnav">
+  <div class="topnav-inner">
+
+    <!-- Logo -->
+    <a href="#hero" class="nav-logo">
+      <img src="images/logo-ecotopia.png" alt="Ecotopia" class="nav-logo-icon" style="width:36px;height:36px;object-fit:contain;filter:brightness(0) invert(1);">
+      <span class="nav-logo-text">Ecotopia</span>
+    </a>
+
+    <!-- Links -->
+    <ul class="nav-links">
+      <li><a href="#modules">Meditacoes</a></li>
+      <li><a href="#problem">Como Funciona</a></li>
+      <li><a href="#testimonials">Depoimentos</a></li>
+      <li><a href="#pricing">Preco</a></li>
+    </ul>
+
+    <!-- CTA -->
+    <a href="#pricing" class="nav-cta">R$37 acesso vitalicio</a>
+
+  </div>
+</nav>
+
+<!-- ══════ HERO ══════ -->
+<section id="hero">
+  <div class="hero-dark">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="pill pill-glass">Meditações em Portugues</span>
+        <span class="pill pill-outline">6 Modulos</span>
+      </div>
+
+      <h1 class="hero-h1">
+        Seu cerebro<br>
+        ainda esta<br>
+        <span class="hl">preso no<br>passado.</span>
+      </h1>
+
+      <p class="hero-sub">
+        Essas meditacoes mudam isso.<br>
+        Metodo Dr. Joe Dispenza guiado, em portugues,<br>com progressao estruturada.
+      </p>
+
+      <a href="#pricing" class="btn btn-primary">Quero acesso por R$37 &#8594;</a>
+
+      <div class="progress-wrap">
+        <div class="progress-track"><div class="progress-fill"></div></div>
+        <p class="progress-lbl"><strong>847 pessoas</strong> ja tem acesso vitalicio</p>
+      </div>
+    </div>
+
+    <!-- Mockup do app -->
+    <div class="mockup-wrap">
+      <div class="mockup-shell">
+        <div class="mockup-screen">
+          <p class="mockup-eyebrow">Metodo Dr. Joe Dispenza</p>
+          <p class="mockup-heading">Suas Meditacoes</p>
+
+          <div class="mockup-row">
+            <div class="mockup-thumb" style="background:linear-gradient(to bottom, #F5C563 0%, #A63428 100%); background-image: url('images/meditacao-bencao-energia.webp'); background-size:cover;"></div>
+            <div>
+              <div class="mockup-row-title">Bencao dos Centros de Energia</div>
+              <div class="mockup-row-sub">7 min</div>
+            </div>
+            <div class="mockup-play"><div class="mockup-play-icon"></div></div>
+          </div>
+
+          <div class="mockup-row">
+            <div class="mockup-thumb" style="background:linear-gradient(to bottom, #4A7FCC 0%, #182864 100%); background-image: url('images/meditacao-novos-potenciais.webp'); background-size:cover;"></div>
+            <div>
+              <div class="mockup-row-title">Sintonize Novos Potenciais</div>
+              <div class="mockup-row-sub">5 min  Premium</div>
+            </div>
+            <div class="mockup-play"><div class="mockup-play-icon"></div></div>
+          </div>
+
+          <div class="mockup-row">
+            <div class="mockup-thumb" style="background:linear-gradient(to bottom, #9B79C9 0%, #3B2463 100%); background-image: url('images/meditacao-recondicionar.webp'); background-size:cover;"></div>
+            <div>
+              <div class="mockup-row-title">Recondicione Corpo e Mente</div>
+              <div class="mockup-row-sub">7 min  Premium</div>
+            </div>
+            <div class="mockup-play"><div class="mockup-play-icon"></div></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ TRUST ══════ -->
+<section id="trust">
+  <div class="container">
+    <div class="trust-row">
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 20 20" fill="none" width="20" height="20"><path d="M10 2L3 5v5c0 4.4 3 8.5 7 9.5 4-1 7-5.1 7-9.5V5l-7-3z" stroke="#6D28D9" stroke-width="1.5" fill="none"/></svg>
+        </div>
+        <span class="trust-txt">Compra<br>Segura</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 20 20" fill="none" width="20" height="20"><circle cx="10" cy="10" r="8" stroke="#6D28D9" stroke-width="1.5"/><path d="M7 10l2 2 4-4" stroke="#6D28D9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <span class="trust-txt">Garantia<br>7 Dias</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg viewBox="0 0 20 20" fill="none" width="20" height="20"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm0 3v5l3 3" stroke="#6D28D9" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <span class="trust-txt">Acesso<br>Vitalicio</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ PROBLEM ══════ -->
+<section id="problem">
+  <div class="container">
+    <div class="sec-eyebrow">
+      <span class="sec-dot"></span>
+      <span class="lbl" style="color:var(--accent);">O problema</span>
+    </div>
+
+    <h2 class="sec-h sec-h-xl">
+      Voce repete.<br>
+      E repete.<br>
+      E repete.
+    </h2>
+
+    <p class="sec-body" style="margin-top:16px;">
+      Toda manha a intencao de mudar. E a noite chega com o mesmo padrao, as mesmas emocoes, os mesmos resultados.
+    </p>
+    <p class="sec-body" style="margin-top:12px;">
+      Nao e fraqueza. E o seu sistema nervoso rodando no piloto automatico, gravado anos atras.
+    </p>
+
+    <div class="feature-stack fade-up">
+      <div class="bcard"><span class="bc-br"></span>
+        <div class="fcard-num">01</div>
+        <div class="fcard-title">Ganhe Controle</div>
+        <p class="fcard-body">Com 20 minutos por dia voce comeca a reescrever os padroes neurologicos que te mantem preso.</p>
+      </div>
+      <div class="bcard"><span class="bc-br"></span>
+        <div class="fcard-num">02</div>
+        <div class="fcard-title">Reprogramacao Real</div>
+        <p class="fcard-body">Meditacao nao e relaxamento. E reprogramacao. Cada sessao imprime uma nova memoria no sistema nervoso.</p>
+      </div>
+      <div class="bcard"><span class="bc-br"></span>
+        <div class="fcard-num">03</div>
+        <div class="fcard-title">Ciencia + Consciencia</div>
+        <p class="fcard-body">O metodo Dispenza une neuroplasticidade e fisica quantica. Nao e crenca. E protocolo.</p>
+      </div>
+    </div>
+
+    <div class="agit-frame fade-up">
+      <div class="agit-visual">
+        <div class="agit-visual-bg"></div>
+        <div class="agit-ring agit-ring-1"></div>
+        <div class="agit-ring agit-ring-2"></div>
+        <div class="agit-ring agit-ring-3"></div>
+        <div class="agit-dot"></div>
+      </div>
+      <div class="agit-body">
+        <p class="agit-title">O futuro ja<br>chegou...</p>
+        <p class="agit-txt">E quem nao reprogramar a mente continua criando o mesmo passado. O seu sistema nervoso nao conhece o futuro que voce quer, a nao ser que voce o ensine.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ BRIDGE ══════ -->
+<section id="bridge">
+  <div class="container">
+    <p class="protocol" style="color:rgba(255,255,255,.4);margin-bottom:12px;">Por isso criamos</p>
+    <h2 class="sec-h sec-h-lg" style="color:#fff;margin-bottom:16px;">Este app.</h2>
+    <p style="font-size:16px;color:rgba(255,255,255,.75);line-height:1.6;margin-bottom:28px;">
+      O unico app em portugues com as meditacoes do metodo Dr. Joe Dispenza. Guiadas, progressivas e disponiveis onde voce estiver.
+    </p>
+    <a href="#pricing" class="btn btn-dark">Quero acesso por R$37 &#8594;</a>
+  </div>
+</section>
+
+<!-- ══════ MODULES ══════ -->
+<section id="modules">
+  <div class="container">
+    <div class="sec-eyebrow" style="margin-bottom:10px;">
+      <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--purple);flex-shrink:0;"></span>
+      <span class="lbl" style="color:var(--purple);">Os modulos</span>
+    </div>
+    <h2 class="sec-h sec-h-lg" style="color:#fff;margin-bottom:12px;">
+      O que voce<br>vai meditar?
+    </h2>
+    <p class="sec-body" style="color:rgba(255,255,255,.4);">Uma jornada progressiva. Nao uma lista aleatoria.</p>
+
+    <div class="mod-cards">
+
+      <!-- Modulo 01 -->
+      <div class="mod-card fade-up">
+        <img
+          class="mod-card-img"
+          src="images/meditacao-bencao-energia.webp"
+          alt="Bencao dos Centros de Energia"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+        >
+        <div class="mod-card-img-fallback" style="display:none;background:linear-gradient(to bottom, #F5C563 0%, #A63428 100%);">
+          <div class="mod-card-img-fallback-ring"></div>
+          <div class="mod-card-img-fallback-ring mod-card-img-fallback-ring-2"></div>
+        </div>
+        <div class="mod-card-body">
+          <div class="mod-card-num">Modulo 01</div>
+          <div class="mod-card-name">Bencao dos Centros de Energia</div>
+          <p class="mod-card-desc">Ative seu corpo para um novo estado interno. A porta de entrada para o metodo Dispenza.</p>
+          <div class="mod-card-meta">
+            <span class="mod-dur-tag">7 min</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modulo 02 -->
+      <div class="mod-card fade-up">
+        <img
+          class="mod-card-img"
+          src="images/meditacao-novos-potenciais.webp"
+          alt="Sintonize Novos Potenciais"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+        >
+        <div class="mod-card-img-fallback" style="display:none;background:linear-gradient(to bottom, #4A7FCC 0%, #182864 100%);">
+          <div class="mod-card-img-fallback-ring"></div>
+          <div class="mod-card-img-fallback-ring mod-card-img-fallback-ring-2"></div>
+        </div>
+        <div class="mod-card-body">
+          <div class="mod-card-num">Modulo 02</div>
+          <div class="mod-card-name">Sintonize Novos Potenciais</div>
+          <p class="mod-card-desc">Acesse o campo de possibilidades alem do seu passado. Expanda o que voce acha possivel para si mesmo.</p>
+          <div class="mod-card-meta">
+            <span class="mod-dur-tag">5 min</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modulo 03 -->
+      <div class="mod-card fade-up">
+        <img
+          class="mod-card-img"
+          src="images/meditacao-recondicionar.webp"
+          alt="Recondicione Seu Corpo e Mente"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+        >
+        <div class="mod-card-img-fallback" style="display:none;background:linear-gradient(to bottom, #9B79C9 0%, #3B2463 100%);">
+          <div class="mod-card-img-fallback-ring"></div>
+          <div class="mod-card-img-fallback-ring mod-card-img-fallback-ring-2"></div>
+        </div>
+        <div class="mod-card-body">
+          <div class="mod-card-num">Modulo 03</div>
+          <div class="mod-card-name">Recondicione Seu Corpo e Mente</div>
+          <p class="mod-card-desc">O que voce repete, vira padrao. Esta sessao interrompe o ciclo antigo e instala um novo.</p>
+          <div class="mod-card-meta">
+            <span class="mod-dur-tag">7 min</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modulo 04 -->
+      <div class="mod-card fade-up">
+        <img
+          class="mod-card-img"
+          src="images/meditacao-caminhando.webp"
+          alt="Meditacao Caminhando"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+        >
+        <div class="mod-card-img-fallback" style="display:none;background:linear-gradient(to bottom right, #FF8C42 0%, #2D1B3D 100%);">
+          <div class="mod-card-img-fallback-ring"></div>
+          <div class="mod-card-img-fallback-ring mod-card-img-fallback-ring-2"></div>
+        </div>
+        <div class="mod-card-body">
+          <div class="mod-card-num">Modulo 04</div>
+          <div class="mod-card-name">Meditacao Caminhando</div>
+          <p class="mod-card-desc">Para quando sentar nao for suficiente. Leve a pratica para o movimento e integre o estado ao corpo em acao.</p>
+          <div class="mod-card-meta">
+            <span class="mod-dur-tag">5 min</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modulo 05 -->
+      <div class="mod-card fade-up">
+        <img
+          class="mod-card-img"
+          src="images/meditacao-espaco-tempo.webp"
+          alt="Espaco-Tempo, Tempo-Espaco"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+        >
+        <div class="mod-card-img-fallback" style="display:none;background:linear-gradient(to bottom, #FCD670 0%, #C43520 100%);">
+          <div class="mod-card-img-fallback-ring"></div>
+          <div class="mod-card-img-fallback-ring mod-card-img-fallback-ring-2"></div>
+        </div>
+        <div class="mod-card-body">
+          <div class="mod-card-num">Modulo 05</div>
+          <div class="mod-card-name">Espaco-Tempo, Tempo-Espaco</div>
+          <p class="mod-card-desc">A sessao mais profunda da jornada. Dissolucao do ego e conexao com o campo quantico. Reserve um momento so seu.</p>
+          <div class="mod-card-meta">
+            <span class="mod-dur-tag">5 min</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:32px;">
+      <a href="#pricing" class="btn btn-primary">Quero acesso por R$37 &#8594;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ TESTIMONIALS ══════ -->
+<section id="testimonials">
+  <div class="container">
+    <span class="fb-label">Feedbacks</span>
+    <h2 class="sec-h sec-h-lg">
+      O que muda<br>quando voce<br>pratica.
+    </h2>
+
+    <div class="tcard-stack">
+      <div class="tcard fade-up">
+        <p class="tcard-text">"Depois de 21 dias seguidos, percebi que parei de reagir automaticamente. E como se eu tivesse ganhado um segundo antes de qualquer resposta."</p>
+        <div class="tcard-author">
+          <div class="tcard-av">M</div>
+          <div>
+            <div class="tcard-name">Mariana S.</div>
+            <div class="tcard-detail">34 anos, 3 meses de pratica</div>
+          </div>
+        </div>
+      </div>
+      <div class="tcard fade-up">
+        <p class="tcard-text">"Li todos os livros do Joe. Mas e na meditacao guiada que o corpo finalmente entende. Em portugues nao perco nenhum detalhe da instrucao."</p>
+        <div class="tcard-author">
+          <div class="tcard-av">C</div>
+          <div>
+            <div class="tcard-name">Carlos M.</div>
+            <div class="tcard-detail">41 anos, 6 meses de pratica</div>
+          </div>
+        </div>
+      </div>
+      <div class="tcard fade-up">
+        <p class="tcard-text">"Nunca consegui meditar mais de 5 minutos. Com esse app, chego a 40 minutos sem perceber. A voz guiada em portugues faz toda a diferenca."</p>
+        <div class="tcard-author">
+          <div class="tcard-av">F</div>
+          <div>
+            <div class="tcard-name">Fernanda L.</div>
+            <div class="tcard-detail">29 anos, 2 meses de pratica</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ PRICING ══════ -->
+<section id="pricing">
+  <div class="container">
+    <div class="sec-eyebrow" style="margin-bottom:10px;">
+      <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--purple);flex-shrink:0;"></span>
+      <span class="lbl" style="color:var(--purple);">Seu acesso</span>
+    </div>
+    <h2 class="sec-h sec-h-lg" style="color:#fff;margin-bottom:8px;">
+      Invista no unico<br>lugar que garante<br><span style="color:var(--purple);">retorno.</span>
+    </h2>
+    <p class="sec-body" style="color:rgba(255,255,255,.38);margin-bottom:32px;">Seu sistema nervoso.</p>
+
+    <div class="t-badge">Acesso vitalicio. Pague uma vez</div>
+
+    <div class="ticket">
+      <div class="ticket-top">
+        <p class="lbl" style="color:rgba(167,139,250,.5);margin-bottom:8px;">ACESSO COMPLETO</p>
+        <p class="t-was">De R$97,00</p>
+        <div class="t-price"><sup>R$</sup>37</div>
+        <p class="t-period">pagamento unico, acesso imediato</p>
+        <div class="t-nomensalidade">
+          <span class="lbl" style="color:#A78BFA;font-size:10px;">sem mensalidade nunca</span>
+        </div>
+      </div>
+      <div class="ticket-perforation"><div class="ticket-dash"></div></div>
+      <div class="ticket-bottom">
+        <ul class="t-features">
+          <li>
+            <span class="tick-dot">
+              <svg class="tick-svg" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            Todos os 5 modulos do metodo Dispenza
+          </li>
+          <li>
+            <span class="tick-dot">
+              <svg class="tick-svg" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            Acesso vitalicio, paga uma unica vez
+          </li>
+          <li>
+            <span class="tick-dot">
+              <svg class="tick-svg" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            iOS e Android
+          </li>
+          <li>
+            <span class="tick-dot">
+              <svg class="tick-svg" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            Atualizacoes incluidas
+          </li>
+        </ul>
+        <a href="#" class="btn btn-primary">Quero acesso por R$37 &#8594;</a>
+        <p style="font-size:11px;color:var(--muted);text-align:center;margin-top:10px;">Pagamento seguro. Acesso em menos de 1 minuto</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ GUARANTEE ══════ -->
+<section id="guarantee">
+  <div class="container">
+    <div class="guar-ring">
+      <div class="guar-inner">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <path d="M20 4L6 10v10c0 8.8 6 17 14 19 8-2 14-10.2 14-19V10L20 4z" stroke="#A78BFA" stroke-width="1.5" fill="none"/>
+          <path d="M14 20l4 4 8-8" stroke="#A78BFA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+
+    <h2 class="sec-h sec-h-md" style="color:#fff;margin-bottom:14px;text-align:center;">
+      Garantia<br>Incondicional
+    </h2>
+    <p style="font-size:15px;color:rgba(255,255,255,.48);line-height:1.6;text-align:center;max-width:300px;margin:0 auto 32px;">
+      Comprou e nao gostou? Devolvemos 100% do seu dinheiro em ate 7 dias. Sem burocracia e sem perguntas.
+    </p>
+    <div style="max-width:320px;margin:0 auto;">
+      <a href="#pricing" class="btn btn-primary">Quero acesso por R$37 &#8594;</a>
+    </div>
+
+    <div class="trust-badges">
+      <div class="tbadge">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2L3 6v6c0 5.5 3.5 10.7 8 12 4.5-1.3 8-6.5 8-12V6l-8-4z" stroke="rgba(255,255,255,.3)" stroke-width="1.3" fill="none"/></svg>
+        <span class="tbadge-txt">Compra<br>Segura</span>
+      </div>
+      <div class="tbadge">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="9" r="4" stroke="rgba(255,255,255,.3)" stroke-width="1.3"/><path d="M4 19c0-3.9 3.1-7 7-7h0c3.9 0 7 3.1 7 7" stroke="rgba(255,255,255,.3)" stroke-width="1.3" stroke-linecap="round"/></svg>
+        <span class="tbadge-txt">Satisfacao<br>Garantida</span>
+      </div>
+      <div class="tbadge">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="4" y="9" width="14" height="10" rx="2" stroke="rgba(255,255,255,.3)" stroke-width="1.3"/><path d="M8 9V7a3 3 0 016 0v2" stroke="rgba(255,255,255,.3)" stroke-width="1.3" stroke-linecap="round"/></svg>
+        <span class="tbadge-txt">Privacidade<br>Protegida</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ FINAL CTA ══════ -->
+<section id="final-cta">
+  <div class="container">
+    <p class="protocol" style="color:rgba(255,255,255,.4);margin-bottom:14px;">Sua nova realidade</p>
+    <h2 class="final-h">
+      Voce nao precisa<br>
+      repetir o passado.<br>
+      <span class="dim">Pode criar uma<br>nova realidade.</span>
+    </h2>
+    <a href="#pricing" class="btn btn-white" style="max-width:360px;margin:0 auto;">
+      Quero acesso por R$37 &#8594;
+    </a>
+    <p style="font-size:12px;color:rgba(255,255,255,.38);text-align:center;margin-top:12px;">Pagamento unico. Sem mensalidade. Garantia de 7 dias.</p>
+  </div>
+</section>
+
+<!-- ══════ FOOTER ══════ -->
+<footer>
+  <p>© 2026 Metodo Dr. Joe Dispenza em Portugues</p>
+  <p>Este app e independente e nao possui afiliacao oficial com Dr. Joe Dispenza.</p>
+</footer>
+
+<!-- ══════ STICKY CTA ══════ -->
+<div class="sticky-bar" id="stickyCta">
+  <a href="#pricing" class="btn btn-primary" style="font-size:16px;padding:14px;">
+    Quero acesso por R$37 &#8594;
+  </a>
+</div>
+
+<script>
+  // Topnav scroll effect
+  const topnav = document.getElementById('topnav');
+  window.addEventListener('scroll', () => {
+    topnav.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+
+  const hero = document.getElementById('hero');
+  const bar  = document.getElementById('stickyCta');
+  new IntersectionObserver(([e]) => bar.classList.toggle('show', !e.isIntersecting), { threshold:.05 }).observe(hero);
+
+  document.querySelectorAll('.fade-up').forEach((el, i) => {
+    new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) {
+        setTimeout(() => el.classList.add('in'), (i % 4) * 80);
+      }
+    }, { threshold: .08 }).observe(el);
+  });
+</script>
+</body>
+</html>
