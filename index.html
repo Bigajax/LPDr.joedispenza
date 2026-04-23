@@ -966,8 +966,15 @@
             Atualizacoes incluidas
           </li>
         </ul>
-        <a href="#" class="btn btn-primary">Quero acesso por R$37 &#8594;</a>
-        <p style="font-size:11px;color:var(--muted);text-align:center;margin-top:10px;">Pagamento seguro. Acesso em menos de 1 minuto</p>
+        <div id="checkout-area">
+          <button id="checkout-btn" class="btn btn-primary" onclick="handleCheckout()">Quero acesso por R$37 &#8594;</button>
+          <p id="checkout-hint" style="font-size:11px;color:var(--muted);text-align:center;margin-top:10px;">Pagamento seguro. Acesso em menos de 1 minuto</p>
+        </div>
+        <div id="checkout-success" style="display:none;flex-direction:column;align-items:center;gap:1rem;padding:1.5rem 2rem;background:rgba(74,156,110,0.08);border:1px solid rgba(74,156,110,0.30);border-radius:12px;text-align:center;">
+          <span style="font-size:28px;color:rgba(192,220,200,0.90);">✓</span>
+          <p style="font-weight:600;font-size:1rem;color:rgba(235,229,218,0.92);line-height:1.4;">Pagamento confirmado!<br><span style="font-weight:400;font-size:0.9375rem;color:rgba(192,180,224,0.72);">Acesse o app para iniciar o protocolo.</span></p>
+          <a href="https://ecofrontend888.vercel.app/app" style="display:inline-flex;align-items:center;gap:8px;padding:0.875rem 2rem;border-radius:8px;font-weight:600;font-size:0.9375rem;color:#fff;text-decoration:none;background:linear-gradient(135deg,#7c6fc0,#9488C4);border:1px solid rgba(255,255,255,0.14);">Acessar o protocolo →</a>
+        </div>
       </div>
     </div>
   </div>
@@ -1059,6 +1066,80 @@
       }
     }, { threshold: .08 }).observe(el);
   });
+
+  /* ── Mercado Pago Checkout ── */
+  let _checkoutState = 'idle';
+
+  const _btnLabels = {
+    idle:    'Quero acesso por R$37 →',
+    loading: 'Aguarde…',
+    open:    'Checkout aberto — conclua o pagamento',
+    success: 'Pagamento confirmado! ✓',
+    error:   'Erro — tente novamente',
+  };
+
+  function _setCheckoutState(state) {
+    _checkoutState = state;
+    const btn = document.getElementById('checkout-btn');
+    if (!btn) return;
+    btn.textContent = _btnLabels[state];
+    btn.disabled = state === 'loading' || state === 'open' || state === 'success';
+    btn.style.opacity = btn.disabled ? '0.6' : '';
+    btn.style.cursor  = btn.disabled ? 'not-allowed' : '';
+
+    if (state === 'success') {
+      document.getElementById('checkout-area').style.display = 'none';
+      document.getElementById('checkout-success').style.display = 'flex';
+    }
+  }
+
+  window.addEventListener('message', function(e) {
+    if (e.data && e.data.type === 'MP_PAYMENT_SUCCESS') {
+      _setCheckoutState('success');
+    }
+  });
+
+  async function handleCheckout() {
+    if (_checkoutState === 'loading' || _checkoutState === 'open' || _checkoutState === 'success') return;
+    _setCheckoutState('loading');
+
+    try {
+      const res = await fetch('/api/mp/create-preference', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({}),
+      });
+      if (!res.ok) throw new Error('Falha ao criar preferência');
+      const data = await res.json();
+      if (!data.init_point) throw new Error('URL de checkout não retornada');
+
+      const w = 820, h = 680;
+      const left = Math.max(0, (window.screen.width - w) / 2 + (window.screenLeft || 0));
+      const top  = Math.max(0, (window.screen.height - h) / 2 + (window.screenTop || 0));
+      const popup = window.open(
+        data.init_point, 'mp_checkout',
+        `width=${w},height=${h},left=${left},top=${top},scrollbars=yes,resizable=yes`
+      );
+
+      if (!popup) {
+        window.location.href = data.init_point;
+        return;
+      }
+
+      _setCheckoutState('open');
+
+      const timer = setInterval(function() {
+        if (popup.closed) {
+          clearInterval(timer);
+          if (_checkoutState === 'open') _setCheckoutState('idle');
+        }
+      }, 600);
+
+    } catch (_) {
+      _setCheckoutState('error');
+      setTimeout(function() { _setCheckoutState('idle'); }, 3000);
+    }
+  }
 </script>
 </body>
 </html>
